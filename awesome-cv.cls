@@ -524,7 +524,7 @@
 % Define an environment for cventry
 \newenvironment{cventries}{
   \begin{center}
-  \vspace{2mm}
+  \vspace{3mm}
 }{
   \vspace{-2mm}
   \end{center}
@@ -532,7 +532,7 @@
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{
-  \vspace{-2mm}
+  \vspace{-3mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
@@ -547,7 +547,7 @@
 % Define an environment for cvproject
 \newenvironment{cvprojects}{
   \begin{center}
-  \vspace{2mm}
+  \vspace{3mm}
 }{
   \vspace{-2mm}
   \end{center}
@@ -555,7 +555,7 @@
 % Define an entry of cv project
 % Usage: \cvproject{<title>}{<date>}{<description>}{<link>}
 \newcommand*{\cvproject}[4]{
-  \vspace{-2mm}
+  \vspace{-3mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
@@ -568,6 +568,7 @@
 \newenvironment{cvsubentries}{
   \begin{center}
 }{
+  \vspace{-2mm}
   \end{center}
 }
 % Define a subentry of cv information
