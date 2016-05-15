@@ -526,6 +526,7 @@
   \begin{center}
   \vspace{2mm}
 }{
+  \vspace{-2mm}
   \end{center}
 }
 % Define an entry of cv information
@@ -548,6 +549,7 @@
   \begin{center}
   \vspace{2mm}
 }{
+  \vspace{-2mm}
   \end{center}
 }
 % Define an entry of cv project
