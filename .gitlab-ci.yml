@@ -9,7 +9,7 @@ build:
         - mkdir -p build
         - xelatex --output-dir=build resume_cv.tex
         - cd build
-        - pdftoppm -png resume.pdf resume
+        - pdftoppm -png resume_cv.pdf resume
     artifacts:
         paths:
             - build/
