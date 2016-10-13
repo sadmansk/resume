@@ -1,9 +1,15 @@
-before-script:
+before_script:
     - apt-get update -qq && apt-get install -y -qq texlive-full poppler-utils
     - xelatex -v
 
 build:
+    stage: deploy
+    environment: Production
     script:
-        - xelatex resume_cv.tex
-        - pdftoppm -png resume_cv.pdf resume
-
+        - mkdir -p build
+        - xelatex --output-dir=build resume_cv.tex
+        - cd build
+        - pdftoppm -png resume.pdf resume
+    artifacts:
+        paths:
+            - build/
