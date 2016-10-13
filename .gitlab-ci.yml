@@ -1,0 +1,9 @@
+before-script:
+    - apt-get update -qq && apt-get install -y -qq texlive-full poppler-utils
+    - xelatex -v
+
+build:
+    script:
+        - xelatex resume_cv.tex
+        - pdftoppm -png resume_cv.pdf resume
+
