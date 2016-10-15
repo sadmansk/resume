@@ -1,4 +1,4 @@
-# Resume ![resume](https://img.shields.io/badge/example-pdf-green.svg)](https://sadmansk.com/resume.pdf)
+# Resume [![resume](https://img.shields.io/badge/example-pdf-green.svg)](https://sadmansk.com/resume.pdf)
 
 ## Setup
 
