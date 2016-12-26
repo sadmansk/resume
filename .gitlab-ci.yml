@@ -6,14 +6,14 @@ cache:
 before_script:
     - export APT_CACHE_DIR=`pwd`/apt-cache && mkdir -pv $APT_CACHE_DIR
     - apt-get update -qq && apt-get -o dir::cache::archives="$APT_CACHE_DIR" install -y -qq texlive-full poppler-utils
-    - xelatex -v
+    - lualatex -v
 
 build:
     stage: deploy
     environment: Production
     script:
         - mkdir -p build
-        - xelatex --output-dir=build resume_cv.tex
+        - lualatex --output-dir=build resume_cv.tex
         - cd build
         - pdftoppm -rx 300 -ry 300 -png resume_cv.pdf resume
     artifacts:
