@@ -1,7 +1,9 @@
 cache:
     key: apt-cache
+    untracked: true
     paths:
         - apt-cache/
+        - build/
   
 before_script:
     - export APT_CACHE_DIR=`pwd`/apt-cache && mkdir -pv $APT_CACHE_DIR
