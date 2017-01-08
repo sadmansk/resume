@@ -85,15 +85,6 @@
 \RequirePackage{parskip}
 % Needed to deal hyperlink
 \RequirePackage{hyperref}
-\hypersetup{
-  pdftitle={},
-  pdfauthor={},
-  pdfsubject={},
-  pdfkeywords={},
-  colorlinks=false,
-  allbordercolors=white
-}
-
 
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations
@@ -135,7 +126,7 @@
 \definecolor{orange}{HTML}{FDA333}
 \definecolor{purple}{HTML}{D3A4F9}
 \definecolor{red}{HTML}{FB4485}
-\definecolor{blue}{HTML}{6CE0F1}
+\definecolor{blue}{HTML}{2190BB}
 % Text colors
 \definecolor{darktext}{HTML}{414141}
 \colorlet{text}{darkgray}
@@ -167,6 +158,20 @@
     } #1#2#3%
   }%
   \stepcounter{colorCounter}%
+}
+
+%------------------------------------------------------------------------------
+%               Configuration for hyperlinks
+%------------------------------------------------------------------------------
+
+\hypersetup{
+  pdftitle={},
+  pdfauthor={},
+  pdfsubject={},
+  pdfkeywords={},
+  colorlinks=true,
+  urlcolor=blue,
+  allbordercolors=white
 }
 
 
