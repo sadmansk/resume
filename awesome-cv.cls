@@ -578,7 +578,7 @@
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
-      \href{#4}{\color{blue}\faGithub}\ \entrytitlestyle{#1} \entrypositionstyle{#2} \\
+      \href{#4}{\color{blue}\faGithub\ \entrytitlestyle{#1}} \entrypositionstyle{#2} \\
     \multicolumn{2}{L{17cm}}{\descriptionstyle{#3}} \\
   \end{tabular*}
 }
