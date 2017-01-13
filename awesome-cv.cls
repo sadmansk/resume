@@ -226,11 +226,12 @@
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{28pt}{1em}\headerfontlight\color{graytext} #1}}
-\newcommand*{\headerlastnamestyle}[1]{{\fontsize{28pt}{1em}\headerfont\bfseries\color{text} #1}}
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{20pt}{1em}\headerfontlight\color{graytext} #1}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{20pt}{1em}\headerfont\bfseries\color{text} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{8pt}{1em}\headerfont\color{text} #1}}
+\newcommand*{\headergitstyle}[1]{{\fontsize{9pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
 \newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
@@ -441,26 +442,6 @@
             {\@headersocialsep}
           \href{http://\@homepage}{\faHome\ \@homepage}
         }
-      \ifthenelse{\isundefined{\@github}}
-        {}
-        {
-          \ifbool{isstart}
-            {
-              \setbool{isstart}{false}
-            }
-            {\@headersocialsep}
-          \href{https://github.com/\@github}{\faGithubSquare\ \@github}
-        }
-      \ifthenelse{\isundefined{\@gitlab}}
-        {}
-        {
-          \ifbool{isstart}
-            {
-              \setbool{isstart}{false}
-            }
-            {\@headersocialsep}
-          \href{https://\@gitlab}{\faGitlab\ \@gitlab}
-        }
       \ifthenelse{\isundefined{\@stackoverflowid}}
         {}
         {
@@ -502,6 +483,32 @@
           \faSkype\ \@skype
         }
     } \\
+    {\vspace{0.2mm}}
+    \headergitstyle{
+      \newbool{isstart}
+      \setbool{isstart}{true}
+      \ifthenelse{\isundefined{\@github}}
+        {}
+        {
+          \ifbool{isstart}
+            {
+              \setbool{isstart}{false}
+            }
+    {\vspace{0.4mm}}
+          \href{https://github.com/\@github}{\faGithub\ github/\@github}
+        }
+      \ifthenelse{\isundefined{\@gitlab}}
+        {}
+        {
+          \ifbool{isstart}
+            {
+              \setbool{isstart}{false}
+            }
+          {\hspace{4mm}}
+          \href{https://\@gitlab}{\faGitlab\ \@gitlab}
+        }
+    } \\
+
     \ifthenelse{\isundefined{\@quote}}
       {}
       {\vspace{6.0mm}\headerquotestyle{\@quote\\}\vspace{5.0mm}}
