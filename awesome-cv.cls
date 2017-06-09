@@ -230,7 +230,7 @@
 \newcommand*{\headerlastnamestyle}[1]{{\fontsize{20pt}{1em}\headerfont\bfseries\color{text} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
-\newcommand*{\headersocialstyle}[1]{{\fontsize{8pt}{1em}\headerfont\color{text} #1}}
+\newcommand*{\headersocialstyle}[1]{{\fontsize{10pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headergitstyle}[1]{{\fontsize{9pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
@@ -376,7 +376,7 @@
 % Define separator for social informations in header
 % Usage: \headersocialsep{<separator>}
 % Default: \quad\textbar\quad
-\newcommand*{\headersocialsep}[1][\quad\textbar\quad]{\def\@headersocialsep{#1}}
+\newcommand*{\headersocialsep}[1][\hspace{-1.5mm}\quad\textbar\quad]{\def\@headersocialsep{#1}}
 \headersocialsep
 
 
@@ -408,11 +408,11 @@
       \@lastname
     }
     \\
-    \vspace{0.4mm}
+    \vspace{1.0mm}
     \ifthenelse{\isundefined{\@position}}{}{\headerpositionstyle{\@position\\}}
     \vspace{0.4mm}
     \ifthenelse{\isundefined{\@address}}{}{\headeraddressstyle{\@address\\}}
-    \vspace{-0.5mm}
+    \vspace{-0.3mm}
     \headersocialstyle{
       \newbool{isstart}
       \setbool{isstart}{true}
@@ -442,16 +442,6 @@
             {\@headersocialsep}
           \href{http://\@homepage}{\faHome\ \@homepage}
         }
-      \ifthenelse{\isundefined{\@stackoverflowid}}
-        {}
-        {
-          \ifbool{isstart}
-            {
-              \setbool{isstart}{false}
-            }
-            {\@headersocialsep}
-          \href{https://stackoverflow.com/users/\@stackoverflowid}{\faStackOverflow\ \@stackoverflowname}
-        }
       \ifthenelse{\isundefined{\@linkedin}}
         {}
         {
@@ -461,6 +451,36 @@
             }
             {\@headersocialsep}
           \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\ \@linkedin}
+        }
+      \ifthenelse{\isundefined{\@github}}
+        {}
+        {
+          \ifbool{isstart}
+            {
+              \setbool{isstart}{false}
+            }
+            {\@headersocialsep}
+          \href{https://github.com/\@github}{\faGithub\ github}
+        }
+      \ifthenelse{\isundefined{\@gitlab}}
+        {}
+        {
+          \ifbool{isstart}
+            {
+              \setbool{isstart}{false}
+            }
+            {\@headersocialsep}
+          \href{https://\@gitlab}{\faGitlab\ gitlab}
+        }
+      \ifthenelse{\isundefined{\@stackoverflowid}}
+        {}
+        {
+          \ifbool{isstart}
+            {
+              \setbool{isstart}{false}
+            }
+            {\@headersocialsep}
+          \href{https://stackoverflow.com/users/\@stackoverflowid}{\faStackOverflow\ \@stackoverflowname}
         }
       \ifthenelse{\isundefined{\@twitter}}
         {}
@@ -481,31 +501,6 @@
             }
             {\@headersocialsep}
           \faSkype\ \@skype
-        }
-    } \\
-    {\vspace{0.2mm}}
-    \headergitstyle{
-      \newbool{isstart}
-      \setbool{isstart}{true}
-      \ifthenelse{\isundefined{\@github}}
-        {}
-        {
-          \ifbool{isstart}
-            {
-              \setbool{isstart}{false}
-            }
-    {\vspace{0.4mm}}
-          \href{https://github.com/\@github}{\faGithub\ github/\@github}
-        }
-      \ifthenelse{\isundefined{\@gitlab}}
-        {}
-        {
-          \ifbool{isstart}
-            {
-              \setbool{isstart}{false}
-            }
-          {\hspace{4mm}}
-          \href{https://\@gitlab}{\faGitlab\ \@gitlab}
         }
     } \\
 
