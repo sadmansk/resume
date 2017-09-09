@@ -1,13 +1,15 @@
+image: tianon/latex
+
 cache:
     key: apt-cache
     untracked: true
     paths:
         - apt-cache/
         - build/
-  
+
 before_script:
     - export APT_CACHE_DIR=`pwd`/apt-cache && mkdir -pv $APT_CACHE_DIR
-    - apt-get update -qq && apt-get -o dir::cache::archives="$APT_CACHE_DIR" install -y -qq texlive-full poppler-utils
+    - apt-get update -qq && apt-get -o dir::cache::archives="$APT_CACHE_DIR" install -y -qq poppler-utils
     - lualatex -v
 
 build:
