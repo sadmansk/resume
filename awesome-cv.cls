@@ -77,7 +77,7 @@
   \RequirePackage[utf8]{inputenc}
 \fi
 % Needed to manage math fonts
-\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
+\RequirePackage[math-style=TeX]{unicode-math}
 % Needed to use icons from font-awesome
 % (https://github.com/posquit0/latex-fontawesome)
 \RequirePackage{fontawesome}
@@ -560,6 +560,21 @@
     \ifempty{#2#3}
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+    \multicolumn{2}{L{17cm}}{\descriptionstyle{#5}} \\
+  \end{tabular*}
+}
+
+% Define an entry of cv information
+% Usage: \cventrylink{<position>}{<title>}{<location>}{<date>}{<description>}{link}
+\newcommand*{\cventrylink}[6]{
+  \vspace{-3mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{12.5cm} R{4.5cm}}
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\href{#6}{\color{blue}\faExternalLink\ \entrytitlestyle{#2}} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
     \multicolumn{2}{L{17cm}}{\descriptionstyle{#5}} \\
   \end{tabular*}
