@@ -8,8 +8,6 @@ cache:
         - build/
 
 before_script:
-    - export APT_CACHE_DIR=`pwd`/apt-cache && mkdir -pv $APT_CACHE_DIR
-    - apt-get update -qq && apt-get -o dir::cache::archives="$APT_CACHE_DIR" install -y -qq poppler-utils
     - lualatex -v
 
 build:
@@ -23,3 +21,16 @@ build:
     artifacts:
         paths:
             - build/
+
+deploy:
+    stage: deploy
+    before_script:
+        - export APT_CACHE_DIR=`pwd`/apt-cache && mkdir -pv $APT_CACHE_DIR
+        - apt-get update -qq && apt-get -o dir::cache::archives="$APT_CACHE_DIR" install -y -qq poppler-utils
+    script:
+        - cd build
+        - pdftoppm -rx 300 -ry 300 -png resume_cv.pdf resume
+    artifacts:
+        paths:
+            - build/
+
